@@ -14,10 +14,10 @@ const WorkSliderBtns: React.FC<WorkSliderBtnsProps> = ({ containerStyles, btnSty
 
   return (
     <div className={containerStyles}>
-      <button className={btnStyles} onClick={() => swiper.slidePrev()}>
+      <button className={btnStyles} onClick={() => swiper.slidePrev()} aria-label="Previous slide" type="button">
         <PiCaretLeftBold className={iconsStyles} />
       </button>
-      <button className={btnStyles} onClick={() => swiper.slideNext()}>
+      <button className={btnStyles} onClick={() => swiper.slideNext()} aria-label="Next slide" type="button">
         <PiCaretRightBold className={iconsStyles} />
       </button>
     </div>
