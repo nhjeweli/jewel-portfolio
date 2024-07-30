@@ -2,7 +2,6 @@
   "extends": "next/core-web-vitals",
   "rules": {
     "react/no-unescaped-entites": "off",
-    "@typescript-eslint/qoutes": "off",
     "quotes": [0],
     "avoidEscape": 0,
     "allowTemplateLiterals": 0,

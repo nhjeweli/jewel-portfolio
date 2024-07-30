@@ -15,7 +15,23 @@ import "swiper/css"
 import Image from "next/image"
 import WorkSliderBtns from "@/components/WorkSliderBtns"
 
-const projects = [
+// Define TypeScript interfaces
+interface StackItem {
+  name: string
+}
+
+interface Project {
+  num: string
+  category: string
+  title: string
+  description: string
+  stack: StackItem[]
+  image: string
+  live: string
+  github: string
+}
+
+const projects: Project[] = [
   {
     num: "01",
     category: "frontend",
@@ -31,7 +47,7 @@ const projects = [
     category: "fullstack",
     title: "project 1",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem animi tenetur accusamus?",
-    stack: [{ name: "next.js" }, { name: "taildwind.css" }],
+    stack: [{ name: "next.js" }, { name: "tailwind.css" }],
     image: "/assets/work/thumb2.png",
     live: "",
     github: ""
@@ -41,19 +57,18 @@ const projects = [
     category: "frontend",
     title: "project 1",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem animi tenetur accusamus?",
-    stack: [{ name: "next.js" }, { name: "taildwind.css" }],
+    stack: [{ name: "next.js" }, { name: "tailwind.css" }],
     image: "/assets/work/thumb3.png",
     live: "",
     github: ""
   }
 ]
 
-const Work = () => {
-  const [project, setProject] = useState(projects[0])
+const Work: React.FC = () => {
+  const [project, setProject] = useState<Project>(projects[0])
 
-  const handleSlideChange = swiper => {
+  const handleSlideChange = (swiper: any) => {
     const currentIndex = swiper.activeIndex
-
     setProject(projects[currentIndex])
   }
 
