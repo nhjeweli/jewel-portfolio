@@ -1,23 +1,31 @@
 import Link from "next/link"
 import { FaGithub, FaLinkedinIn, FaYoutube, FaTwitter } from "react-icons/fa"
 
-const socials = [
-  { icon: <FaGithub />, path: "" },
-  { icon: <FaLinkedinIn />, path: "" },
-  { icon: <FaYoutube />, path: "" },
-  { icon: <FaTwitter />, path: "" }
+interface Social {
+  icon: JSX.Element
+  path: string
+}
+
+const socials: Social[] = [
+  { icon: <FaGithub />, path: "https://github.com/nhjeweli" },
+  { icon: <FaLinkedinIn />, path: "https://linkedin.com/in/nhjeweli" },
+  { icon: <FaYoutube />, path: "https://youtube.com/nhjeweli" },
+  { icon: <FaTwitter />, path: "https://twitter.com/nhjeweli" }
 ]
 
-const Socials = ({ containerStyles, iconStyles }) => {
+interface SocialsProps {
+  containerStyles?: string
+  iconStyles?: string
+}
+
+const Socials: React.FC<SocialsProps> = ({ containerStyles = "", iconStyles = "" }) => {
   return (
     <div className={containerStyles}>
-      {socials.map((item, index) => {
-        return (
-          <Link key={index} href={item.path} className={iconStyles}>
-            {item.icon}
-          </Link>
-        )
-      })}
+      {socials.map((item, index) => (
+        <Link key={index} href={item.path} className={iconStyles}>
+          {item.icon}
+        </Link>
+      ))}
     </div>
   )
 }
